@@ -16,19 +16,10 @@ public class StartPage extends BasePage {
     @FindBy(xpath = "(//a[@data-element='button'])[1]")
     private WebElement headerSignInElement;
 
-    @FindBy(xpath = "(//a[@data-element='button'])[2]")
-    private WebElement headerSignUpElement;
-
     @Step("Push the button 'Sign In' in Header ")
     public void clickHeaderSignInButton() {
         wait = new Wait(driver);
         wait.forVisibility(headerSignInElement);
         headerSignInElement.click();
-    }
-
-    public void clickHeaderSignUpButton() {
-        wait = new Wait(driver);
-        wait.forVisibility(headerSignUpElement);
-        headerSignUpElement.click();
     }
 }

@@ -19,7 +19,8 @@ public class AuthorizationPositiveTest extends BaseTest {
 
     RegistrationPage registrationPage;
 
-    @Test @DisplayName("Authorization as a teacher")
+    @Test
+    @DisplayName("Authorization as a teacher")
     @Description("Trying to sign in with valid data")
     public void successAuthorizationAsTeacherTest() {
         startPage = new StartPage(app.driver);
@@ -36,8 +37,8 @@ public class AuthorizationPositiveTest extends BaseTest {
 
         assertTrue(homePage.getTextForTeacher().contains("As a teacher"));
     }
-
-    @Test @DisplayName("Authorization as a student")
+    @Test
+    @DisplayName("Authorization as a student")
     @Description("Trying to sign in with valid data")
     public void successAuthorizationAsStudentTest() {
         startPage = new StartPage(app.driver);
@@ -55,7 +56,8 @@ public class AuthorizationPositiveTest extends BaseTest {
         assertTrue(homePage.getTextForStudent().contains("As a student"));
     }
 
-    @Test @DisplayName("Recovery password")
+    @Test
+    @DisplayName("Recovery password")
     @Description("When you click on the 'Forgot password' link, the system navigates you to the 'Forgot password' page where you'll see a form to fill out.")
     public void checkForgotPasswordTest() {
         startPage = new StartPage(app.driver);
@@ -66,10 +68,11 @@ public class AuthorizationPositiveTest extends BaseTest {
         authorizationPage.clickForgotPasswordLink();
 
         forgotPasswordPage = new ForgotPasswordPage(app.driver);
-        assertTrue("Recovery password form is not displayed",forgotPasswordPage.recoverPasswordButton());
+        assertTrue("Recovery password form is not displayed", forgotPasswordPage.recoverPasswordButton());
     }
 
-    @Test @DisplayName("Password is hidden")
+    @Test
+    @DisplayName("Password is hidden")
     @Description("Password field displays masked characters (dots) instead of the actual password")
     public void passwordInvisibilitySignInFormTest() {
         startPage = new StartPage(app.driver);
@@ -82,7 +85,8 @@ public class AuthorizationPositiveTest extends BaseTest {
         assertTrue(authorizationPage.passwordCheckMaskedSignInForm());
     }
 
-    @Test @DisplayName("Password is visible")
+    @Test
+    @DisplayName("Password is visible")
     @Description("If you click on crossed eye symbol, displays actual password")
     public void passwordVisibilitySignInFormTest() {
         startPage = new StartPage(app.driver);
@@ -96,7 +100,8 @@ public class AuthorizationPositiveTest extends BaseTest {
         assertTrue(authorizationPage.passwordCheckNotMaskedSignInForm());
     }
 
-    @Test @DisplayName("Copy is disabled")
+    @Test
+    @DisplayName("Copy is disabled")
     @Description("Impossible to copy password, if it masked")
     public void disabledCopyForHiddenPasswordSignInFormTest() throws IOException, UnsupportedFlavorException {
         startPage = new StartPage(app.driver);
@@ -108,7 +113,8 @@ public class AuthorizationPositiveTest extends BaseTest {
         assertTrue(authorizationPage.isCopyingDisabledSignInForm(validStudentPassword));
     }
 
-    @Test @DisplayName("Cut is disabled")
+    @Test
+    @DisplayName("Cut is disabled")
     @Description("Impossible to cut password, if it masked")
     public void disabledCutForHiddenPasswordSignInFormTest() throws IOException, UnsupportedFlavorException {
         startPage = new StartPage(app.driver);
@@ -120,7 +126,8 @@ public class AuthorizationPositiveTest extends BaseTest {
         assertTrue(authorizationPage.isCuttingDisabledSignInForm(validStudentPassword));
     }
 
-    @Test @DisplayName("Sign Up button is enabled")
+    @Test
+    @DisplayName("Sign Up button is enabled")
     @Description("After clicking the 'Sign Up' button,the system navigates to the 'Registration' page ")
     public void checkSignUpButtonInSignInFormTest() {
         startPage = new StartPage(app.driver);

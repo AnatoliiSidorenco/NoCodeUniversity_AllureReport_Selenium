@@ -14,8 +14,9 @@ public class ForgotPasswordPage extends BasePage {
 
     @FindBy(css = "[type='button']")
     private WebElement recoverPasswordButtonElement;
+
     @Step("Verification that Button 'Recover password' is visible")
-    public boolean recoverPasswordButton(){
+    public boolean recoverPasswordButton() {
         Wait wait = new Wait(driver);
         wait.forVisibility(recoverPasswordButtonElement);
         return recoverPasswordButtonElement.isDisplayed();

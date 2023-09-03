@@ -45,6 +45,7 @@ public class HomePage extends BasePage {
 
         return welcomeSectionForTeacherElement.getText();
     }
+
     @Step("The validation result: displayed text from the student's page")
     public String getTextForStudent() {
         return welcomeSectionForStudentElement.getText();
@@ -63,16 +64,4 @@ public class HomePage extends BasePage {
         wait.forVisibility(signOutTeacherElement);
         signOutTeacherElement.click();
     }
-
-
-
-/*    @FindBy(xpath = "(//a[@data-element='button'])[2]")
-    private WebElement meetYourPeersElement;
-
-    public boolean meetYourPeersButtonIsDisplayed(){
-
-        return meetYourPeersElement.isDisplayed();
-    }*/
-
-
 }

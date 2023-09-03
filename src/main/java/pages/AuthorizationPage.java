@@ -37,22 +37,16 @@ public class AuthorizationPage extends BasePage {
     @FindBy(css = "[class='error-message login-error d-block']")
     private WebElement errorMessageSignInElement;
 
-
     public void waitForLoading() {
         wait = new Wait(driver);
         wait.forVisibility(emailInputSignInElement);
     }
-
     @Step("Fill Input 'Email' with valid data")
-    public void fillInputEmailSignInForm(User user) {
-        emailInputSignInElement.sendKeys(user.getEmail());
-    }
-
+    public void fillInputEmailSignInForm(User user) { emailInputSignInElement.sendKeys(user.getEmail());}
     @Step("Fill Input 'Password' with valid data")
     public void fillInputPasswordSignInForm(User user) {
         passwordInputSignInElement.sendKeys(user.getPassword());
     }
-
     @Step("Push the button 'Sign in'")
     public void clickSignInButtonInSignInForm() {
         signInButtonSignInFormElement.click();
@@ -114,16 +108,9 @@ public class AuthorizationPage extends BasePage {
 
         return carvedText == null || carvedText.isEmpty();
     }
-
-    public boolean emailInSignInFormIsVisible() {
-
-        return emailInputSignInElement.isDisplayed();
-    }
-@Step("Above the email field appears notice 'Invalid email or password'")
+    @Step("Above the email field appears notice 'Invalid email or password'")
     public String errorMessageSignInForm() {
         wait.forVisibility(errorMessageSignInElement);
         return errorMessageSignInElement.getText();
     }
-
-
 }

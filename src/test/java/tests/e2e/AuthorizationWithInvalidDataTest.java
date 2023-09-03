@@ -13,8 +13,9 @@ public class AuthorizationWithInvalidDataTest extends BaseTest {
     StartPage startPage;
     AuthorizationPage authorizationPage;
 
-    @Test @DisplayName("Authorization as a Non-Existed user")
-    @Description("Attempt to sign in, whith data of not previously registered user")
+    @Test
+    @DisplayName("Authorization as a Non-Existed user")
+    @Description("Attempt to sign in, with data of not previously registered user")
     public void signInWithNonExistedUserTest() {
         startPage = new StartPage(app.driver);
         startPage.clickHeaderSignInButton();
@@ -28,7 +29,8 @@ public class AuthorizationWithInvalidDataTest extends BaseTest {
         assertEquals("Invalid email or password", authorizationPage.errorMessageSignInForm());
     }
 
-    @Test @DisplayName("Authorization with invalid Email")
+    @Test
+    @DisplayName("Authorization with invalid Email")
     @Description("Attempt to sign in, while inputting in the email field invalid data")
     public void signInWithInvalidEmail() {
         startPage = new StartPage(app.driver);
@@ -36,14 +38,15 @@ public class AuthorizationWithInvalidDataTest extends BaseTest {
 
         authorizationPage = new AuthorizationPage(app.driver);
         authorizationPage.waitForLoading();
-        authorizationPage.fillInputEmailSignInForm(nonRegisteredUser);
+        authorizationPage.fillInputEmailSignInForm(invalidUser);
         authorizationPage.fillInputPasswordSignInForm(validTeacher);
         authorizationPage.clickSignInButtonInSignInForm();
 
         assertEquals("Invalid email or password", authorizationPage.errorMessageSignInForm());
     }
 
-    @Test @DisplayName("Authorization with empty field Email")
+    @Test
+    @DisplayName("Authorization with empty field Email")
     @Description("Attempt to sign in, while inputting in the password field invalid data")
     public void signInWithInvalidPassword() {
         startPage = new StartPage(app.driver);
@@ -52,7 +55,7 @@ public class AuthorizationWithInvalidDataTest extends BaseTest {
         authorizationPage = new AuthorizationPage(app.driver);
         authorizationPage.waitForLoading();
         authorizationPage.fillInputEmailSignInForm(validTeacher);
-        authorizationPage.fillInputPasswordSignInForm(nonRegisteredUser);
+        authorizationPage.fillInputPasswordSignInForm(invalidUser);
         authorizationPage.clickSignInButtonInSignInForm();
 
         assertEquals("Invalid email or password", authorizationPage.errorMessageSignInForm());
